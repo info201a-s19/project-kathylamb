@@ -21,10 +21,6 @@ number of deaths have increased over the years for the younger population.
 Use this `REAMDE.md` file to describe your final project (as detailed on Canvas).
 
 
-=======
-> Use this `REAMDE.md` file to describe your final project (as detailed on Canvas).
->>>>>>> f531e824f91f40aa4070635245a99fde3ba91f51
-
 How many observations(rows) were in the data?
 
 For the VSRR_Provisional_Drug_Overdose_Death_Counts.csv data, there were 13320 rows. For the drug-use-by-age.csv data, there were 17 rows. For the Accidental_Drug_Related_Deaths_2012-2018.csv data, there were 5105 rows. 
