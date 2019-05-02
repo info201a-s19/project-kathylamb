@@ -14,12 +14,6 @@ number of deaths have increased over the years for the younger population.
 
 
 ## Finding Data
-
-<<<<<<< HEAD
-# test :)
->>>>>>> c32fa8492c1e4baee80f5d3fba36ea129ec8b7e3
-Use this `REAMDE.md` file to describe your final project (as detailed on Canvas).
-
 - Data source URL
   - _Drug Use by Age_ https://data.world/fivethirtyeight/drug-use-by-age
   - _Accidental Drug Related Deaths 2012-2018_ https://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015
