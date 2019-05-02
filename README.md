@@ -6,9 +6,17 @@ Domain of Interest: Health/Healthcare - Death Caused by Drug Use
 ## Domain of Interest
 - We were interested in this domain because drug use has always been a prevalent
 issue in our society.
+- Some examples of data driven projects related to this domain include: 
+
+> https://data.world/fivethirtyeight/drug-use-by-age
+
+> https://data.world/health/drug-induced-deaths
+
+>https://data.world/samhsa/not-receiving-treatment-drugs
+
 - We're curious to see if there is any correlation between drug use and natural
 death in specific ages, if drug use increases as age increases, and if the
-number of deaths have increased over the years for the younger population.
+number of deaths have increased over the years for the younger population. By answering these questions, we believe we can adjust the healthcare approach of addressing and preventing further deaths by drug use. This problem is especially prevalent with individuals presented with high-stress situations who rely on an external source to destress or compensate. 
 
 ## Finding Data
 - Data source URL
