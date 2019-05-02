@@ -5,7 +5,12 @@ Domain of Interest: Health/Healthcare - Death Caused by Drug Use
 
 ## Domain of Interest
 - We were interested in this domain because drug use has always been a prevalent
-issue in our society.
+issue in our society. Often times, people have the general knowledge that drug
+use is an issue but don't see the trends and affect that it has. By looking at
+this issue under a microscope, we believe that we can bring more understanding
+and transparency to those who don't fully understand it and contribute to the 
+healthcare community. 
+
 - Some examples of data driven projects related to this domain include: 
   - https://ourworldindata.org/alcohol-and-drug-dependency
     - This concise project reveals patterns in drug dependencies around the 
@@ -38,12 +43,14 @@ rely on an external source to destress or compensate.
   - _Drug Use by Age_
     - National Survey on Drug Use and Health from the Substance Abuse and Mental
     Health Data Archive
+    - This data was collected through a questionaires, surveys, and sampling.  
   - _Accidental Drug Related Deaths 2012-2018_
-    - an investigation by the Office of the Chief Medical Examiner which 
+    - An investigation by the Office of the Chief Medical Examiner which 
     includes the toxicity report, death certificate, as well as a scene 
     investigation
   - _Provisional Drug Overdoes Death Counts_
     - National Center for Health Statistics (NCHS)
+    - This data was collected based on death records recieved from the NCHS 
 
 
 - What is the data about?
