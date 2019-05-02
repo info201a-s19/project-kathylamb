@@ -7,7 +7,7 @@ Domain of Interest: Health/Healthcare - Death Caused by Drug Use
 - We were interested in this domain because drug use has always been a prevalent
 issue in our society.
 - We're curious to see if there is any correlation between drug use and natural
-death in specific ages, if drug use increases as age increases, and if if the
+death in specific ages, if drug use increases as age increases, and if the
 number of deaths have increased over the years for the younger population.
 
 ## Finding Data
@@ -34,7 +34,6 @@ number of deaths have increased over the years for the younger population.
   - _Provisional Drug Overdoes Death Counts_
     - provisional counts for drug overdose deaths based on a current flow of mortality data in the National Vital Statistic System.
 
-
 - How many observations(rows) were in the data?
 
   - For the VSRR_Provisional_Drug_Overdose_Death_Counts.csv data, there were 13320 rows. For the drug-use-by-age.csv data, there were 17 rows. For the Accidental_Drug_Related_Deaths_2012-2018.csv data, there were 5105 rows.
@@ -44,3 +43,6 @@ number of deaths have increased over the years for the younger population.
   - For the VSRR_Provisional_Drug_Overdose_Death_Counts.csv data, there were 12 columns. For the drug-use-by-age.csv data, there were 28 columns. For the Accidental_Drug_Related_Deaths_2012-2018.csv, there were 41 columns.
 
 What questions (from above) can be answered using the data in this dataset?
+- Is there a correlation between drug use and natural deaths in certain ages?
+- Does drug use increase as you get older?
+- Has the number of deaths have increased due to drugs over the years in the younger generation?
