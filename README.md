@@ -50,7 +50,7 @@ number of deaths have increased over the years for the younger population. By an
 
   - For the VSRR_Provisional_Drug_Overdose_Death_Counts.csv data, there were 12 columns. For the drug-use-by-age.csv data, there were 28 columns. For the Accidental_Drug_Related_Deaths_2012-2018.csv, there were 41 columns.
 
-What questions (from above) can be answered using the data in this dataset?
-- Is there a correlation between drug use and natural deaths in certain ages?
-- Does drug use increase as you get older?
-- Has the number of deaths have increased due to drugs over the years in the younger generation?
+- What questions (from above) can be answered using the data in this dataset?
+  - Is there a correlation between drug use and natural deaths in certain ages?
+  - Does drug use increase as you get older?
+  - Has the number of deaths have increased due to drugs over the years in the younger generation?
