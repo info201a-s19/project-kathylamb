@@ -5,5 +5,9 @@ date: "5/24/2019"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 ## Introduction
 This project's goal is to see if there is a correlation between drug use and deaths [(source)](https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm). Some questions that we are trying to answer is *if drug use increases as age increases* or *if the number of deaths have increased over the years for the younger generation*. Drug use has increased over the years, so by answering some of these questions, we believe we can adjust the healthcare approach of **addressing** and **preventing** further deaths by drug use. 
