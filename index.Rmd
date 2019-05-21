@@ -6,8 +6,13 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+accidental_drug_deaths <- read.csv("data/Accidental_Drug_Related_Deaths_2012-2018.csv")
+drug_use_by_age <- read.csv("data/drug-use-by-age.csv")
+drug_overdose_death_counts <- read.csv("data/VSRR_Provisional_Drug_Overdose_Death_Counts.csv")
 ```
 
 ## Introduction
-This project's goal is to see if there is a correlation between drug use and deaths [(source)](https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm). Some questions that we are trying to answer is *if drug use increases as age increases* or *if the number of deaths have increased over the years for the younger generation*. Drug use has increased over the years, so by answering some of these questions, we believe we can adjust the healthcare approach of **addressing** and **preventing** further deaths by drug use. 
+This project's goal is to see if there is a correlation between drug use and deaths. The data that we are using were obtained from [Data World](https://data.world/fivethirtyeight/drug-use-by-age), [Data.gov](https://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), and the [CDC](https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm). Some questions that we are trying to answer is *if drug use increases as age increases* or *if the number of deaths have increased over the years for the younger generation*. Drug use has increased over the years, so by answering some of these questions, we believe we can adjust the healthcare approach of **addressing** and **preventing** further deaths by drug use. 
+
+## Summary
+
