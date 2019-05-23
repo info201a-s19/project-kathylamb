@@ -9,10 +9,14 @@ output: html_document
 accidental_drug_deaths <- read.csv("data/Accidental_Drug_Related_Deaths_2012-2018.csv")
 drug_use_by_age <- read.csv("data/drug-use-by-age.csv")
 drug_overdose_death_counts <- read.csv("data/VSRR_Provisional_Drug_Overdose_Death_Counts.csv")
+source("scripts/summary-info.R")
+library("knitr")
 ```
 
 ## Introduction
 This project's goal is to see if there is a correlation between drug use and deaths. The data that we are using were obtained from [Data World](https://data.world/fivethirtyeight/drug-use-by-age), [Data.gov](https://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), and the [CDC](https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm). Some questions that we are trying to answer is *if drug use increases as age increases* or *if the number of deaths have increased over the years for the younger generation*. Drug use has increased over the years, so by answering some of these questions, we believe we can adjust the healthcare approach of **addressing** and **preventing** further deaths by drug use. 
 
-## Summary
+## Summary Information
+One of the datasets that we are using comes from [Data.gov](https://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015) which gives data about accidental drug related deaths from 2012 to 2018. The dataset has a length of `r get_summary_info(accidental_drug_deaths)$length`. From this dataset, it shows that the average age of those who died of drug use is `r get_summary_info(accidental_drug_deaths)$average_age_of_drug_used_death` years old. If we look at the percent of males who died of drug use in comparison to the percent of females, it shows that the percent of males was `r get_summary_info(accidental_drug_deaths)$male_percentage`% versus the percent of females was `r get_summary_info(accidental_drug_deaths)$female_percentage`%. Interestingly, the race that has the highest amounts of deaths due to drug use is `r get_summary_info(accidental_drug_deaths)$most_race`. Lastly, based from the percentages and the dataset, the sex that has the most deaths due to drug use is `r get_summary_info(accidental_drug_deaths)$most_sex`.
+
 
