@@ -1,33 +1,34 @@
 # Aggregate Table Script
-# 
+#
 # Load neccessary libraries
 library(ggplot2)
 library(dplyr)
 library(knitr)
 
 # Drug Overdose Dataframe
-drug_od_df <- read.csv("data/VSRR_Provisional_Drug_Overdose_Death_Counts.csv", 
-                       stringsAsFactors = FALSE)
+drug_od_df <- read.csv("data/VSRR_Provisional_Drug_Overdose_Death_Counts.csv",
+  stringsAsFactors = FALSE
+)
 
 # Take out commas to later modify as.numeric
 drug_od_df$Data.Value <- gsub(",", "", drug_od_df$Data.Value)
-  
+
 # Modify dataframe down to 2018 and by chronological month
-death_month <- drug_od_df %>% 
+death_month <- drug_od_df %>%
   group_by(Year) %>%
-  select(Year, Month, "Drug" = Indicator, "Deaths" = Data.Value) %>%  
-  filter(Month == unique(Month))  %>%
-  filter(Year == 2018) %>% 
+  select(Year, Month, "Drug" = Indicator, "Deaths" = Data.Value) %>%
+  filter(Month == unique(Month)) %>%
+  filter(Year == 2018) %>%
   arrange(Year, factor(Month, level = month.name), Drug, Deaths)
 
 # Modify dataframe to x # of months; number of deaths and respective indicator
-death_by_year <- death_month %>% 
-  group_by(Month) %>% 
+death_by_year <- death_month %>%
+  group_by(Month) %>%
   filter(Drug != "Number of Deaths") %>%
-  filter(Drug != "Number of Drug Overdose Deaths") %>% 
-  filter(Drug != "Percent with Drugs Specified") %>% 
-  mutate(Deaths = as.numeric(as.character(Deaths))) %>% 
-  filter(Deaths == max(Deaths)) %>% 
+  filter(Drug != "Number of Drug Overdose Deaths") %>%
+  filter(Drug != "Percent with Drugs Specified") %>%
+  mutate(Deaths = as.numeric(as.character(Deaths))) %>%
+  filter(Deaths == max(Deaths)) %>%
   filter(Month == unique(Month))
 
 # Function to call for aggregate table: "VSSR Provisional Drug Overdose"
@@ -38,6 +39,3 @@ death_by_year <- death_month %>%
 drug_od_table <- function(dataframe) {
   kable(dataframe)
 }
-
-
-
