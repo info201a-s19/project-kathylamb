@@ -6,10 +6,9 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-accidental_drug_deaths <- read.csv("data/Accidental_Drug_Related_Deaths_2012-2018.csv")
-drug_use_by_age <- read.csv("data/drug-use-by-age.csv")
-drug_overdose_death_counts <- read.csv("data/VSRR_Provisional_Drug_Overdose_Death_Counts.csv")
+accidental_drug_deaths <- read.csv("data/Accidental_Drug_Related_Deaths_2012-2018.csv", stringsAsFactors = FALSE)
 source("scripts/summary-info.R")
+source("scripts/aggregate-table.R")
 library("knitr")
 ```
 
@@ -19,4 +18,10 @@ This project's goal is to see if there is a correlation between drug use and dea
 ## Summary Information
 One of the datasets that we are using comes from [Data.gov](https://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015) which gives data about accidental drug related deaths from 2012 to 2018. The dataset has a length of `r get_summary_info(accidental_drug_deaths)$length`. From this dataset, it shows that the average age of those who died of drug use is `r get_summary_info(accidental_drug_deaths)$average_age_of_drug_used_death` years old. If we look at the percent of males who died of drug use in comparison to the percent of females, it shows that the percent of males was `r get_summary_info(accidental_drug_deaths)$male_percentage`% versus the percent of females was `r get_summary_info(accidental_drug_deaths)$female_percentage`%. Interestingly, the race that has the highest amounts of deaths due to drug use is `r get_summary_info(accidental_drug_deaths)$most_race`. Lastly, based from the percentages and the dataset, the sex that has the most deaths due to drug use is `r get_summary_info(accidental_drug_deaths)$most_sex`.
 
+## Monthly Breakdown of Death Due To Opioids
+Here are the number of deaths that have occurred just in 2018 from Janurary to September due to the use of opiods:
+```{r drug_od_table, echo = FALSE}
+drug_od_table(death_by_year)
+```
 
+The reason we included the table was to answer the question of *what is the monthly breakdown of the type of drug use and the number of deaths?*. We wanted to see just in 2018 alone, based on each month, how many people have died from drug overdose. By having this table, it gives a clear layout where we are able to analyze if there is a correlation between the number of deaths and the month due to the use of opioids. Based on the table, surprisingly, from January to September, the number of deaths are quite close to each other. Yet, there is a small miniscule difference where January has the highest amount of deaths while September has the lowest. This shows that a specific month could play a factor in the amount of people who tend to use opioiods. If we think about this in terms of seasons, it kind of shows as the season gets better, the number of deaths decrease. January-March is winter and the most gloomy time of the year which could result in higher number of deaths, while June-September is summer which could result in slightly lower deaths.
