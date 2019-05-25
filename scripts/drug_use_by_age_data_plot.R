@@ -1,5 +1,5 @@
 # Read drug-use-by-age.csv file
-drug_age_data <- read.csv("data/drug-use-by-age.csv")
+drug_age_data <- read.csv("../data/drug-use-by-age.csv")
 
 # Load libraries
 library(ggplot2)
