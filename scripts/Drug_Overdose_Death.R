@@ -29,7 +29,7 @@ plot_drug_overdose <- function(drug_overdose){
   
   # Plot the chart.
   drug_pie <- pie(x, labels = piepercent, main = "9 deadliest drugs from 2015 - 2018", col = rainbow(length(x)), radius = 0.3)
-  legend("top", labels, cex = 0.6, fill = rainbow(length(x)))
+  legend("top", labels, cex = 0.5, fill = rainbow(length(x)))
  
   drug_pie 
 }

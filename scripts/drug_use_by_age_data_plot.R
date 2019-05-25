@@ -17,7 +17,7 @@ drug_age_data_whole <- drug_age_data %>%
          pain.releiver.use, oxycontin.use, tranquilizer.use, stimulant.use, meth.use, sedative.use
   ) %>%   
   rename(Number_of_users = n) %>%
-  mutate_at(vars(ends_with(".use")), funs((./100) * Number_of_users))
+  mutate_at(vars(ends_with(".use")), list(~(./100) * Number_of_users))
 
 # Plot data
 
