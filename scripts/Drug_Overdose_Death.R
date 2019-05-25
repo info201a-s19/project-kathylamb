@@ -1,5 +1,5 @@
 # Read VSRR_Provisional_Drug_Overdose_Death_Counts.csv file
-drug_overdose <- read.csv("../data/VSRR_Provisional_Drug_Overdose_Death_Counts.csv", na.strings = c("", "NA"))
+drug_overdose <- read.csv("data/VSRR_Provisional_Drug_Overdose_Death_Counts.csv", na.strings = c("", "NA"))
 
 # Load libraries
 library(ggplot2)
