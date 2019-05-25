@@ -6,7 +6,7 @@ library(ggplot2)
 library(plotly)
 library(dplyr)
   
-plot_drug_overdose <- function(drug_overdose){
+
 
   # Number of drug overdose deaths over the course of 2015 - 2018 by state
   
@@ -31,5 +31,3 @@ plot_drug_overdose <- function(drug_overdose){
   drug_pie <- pie(x, labels = piepercent, main = "9 deadliest drugs from 2015 - 2018", col = rainbow(length(x)), radius = 0.3)
   legend("top", labels, cex = 0.5, fill = rainbow(length(x)))
  
-  drug_pie 
-}

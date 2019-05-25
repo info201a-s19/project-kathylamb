@@ -1,5 +1,5 @@
 # Read drug-use-by-age.csv file
-drug_age_data <- read.csv("data/drug-use-by-age.csv")
+drug_age_data <- read.csv("data/drug-use-by-age.csv", stringsAsFactors = FALSE)
 
 # Load libraries
 library(ggplot2)
@@ -25,6 +25,7 @@ plot_drug_age <- ggplot(drug_age_data_whole) +
   geom_col(
     mapping = aes(x = age, y = Number_of_users)
   ) +
+  labs(y = "Number of users") +
   ggtitle("Number of users by age group")
 
 plot(plot_drug_age)
