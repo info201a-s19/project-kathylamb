@@ -11,26 +11,26 @@ plot_accident_drug <- function(accident_drug){
 
 # Manipulate data to get rid of NA values and show longitude and latitude for map
 
-accident_drug_locations <- accident_drug %>%
+accident_drug <- accident_drug %>%
   select(DeathCityGeo, DateType, COD, Sex, Race) %>%
   filter(DateType == "DateofDeath") %>%
   group_by(DateType) %>%
   na.omit() %>%
   mutate(count = n()) %>%
-  mutate(longitude = sub(".*\\([^,]+,\\s*(-?\\d+(?:\\.\\d+)?).*", "\\1", accident_drug_locations$DeathCityGeo)) %>%
-  mutate(latitude = sub(".*\\((-?\\d+(?:\\.\\d+)?).*", "\\1", accident_drug_locations$DeathCityGeo))
+  mutate(longitude = sub(".*\\([^,]+,\\s*(-?\\d+(?:\\.\\d+)?).*", "\\1", DeathCityGeo)) %>%
+  mutate(latitude = sub(".*\\((-?\\d+(?:\\.\\d+)?).*", "\\1", DeathCityGeo))
 
 # Create a new map
 
-locations <- accident_drug_locations
+locations <- accident_drug
 
 # Pop up information when circle is clicked on map
 
 content <- paste(sep = "<br/>",
-                 accident_drug_locations$Sex, accident_drug_locations$Race, accident_drug_locations$COD)
+                 accident_drug$Sex, accident_drug$Race, accident_drug$COD)
 # Color palette
 
-palette_fn <- colorFactor(palette = "Set3", domain = accident_drug_locations$Race)
+palette_fn <- colorFactor(palette = "Set3", domain = accident_drug$Race)
 
 # Plot map with information from data frame
 
