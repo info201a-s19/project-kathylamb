@@ -28,7 +28,7 @@ Here are the number of deaths that have occurred just in 2018 from Janurary to S
 drug_od_table(drug_od_df)
 ```
 
-The reason we included the table was to answer the question of *what is the monthly breakdown of the type of drug use and the number of deaths?*. We wanted to see just in 2018 alone, based on each month, how many people have died from drug overdose. By having this table, it gives a clear layout where we are able to analyze if there is a correlation between the number of deaths and the month due to the use of opioids. Based on the table, surprisingly, from January to September, the number of deaths are quite close to each other. Yet, there is a small miniscule difference where January has the highest amount of deaths while September has the lowest. This shows that a specific month could play a factor in the amount of people who tend to use opioiods. If we think about this in terms of seasons, it kind of shows as the season gets better, the number of deaths decrease. January-March is winter and the most gloomy time of the year which could result in higher number of deaths, while June-September is summer which could result in slightly lower deaths.
+The reason we included the table was to answer the question of *"What is the monthly breakdown of the type of drug use and the number of deaths?"*. We wanted to see just in 2018 alone, based on each month, how many people have died from drug overdose. By having this table, it gives a clear layout where we are able to analyze if there is a correlation between the number of deaths and the month due to the use of opioids. Based on the table, surprisingly, from January to September, the number of deaths are quite close to each other. Yet, there is a small miniscule difference where January has the highest amount of deaths while September has the lowest. This shows that a specific month could play a factor in the amount of people who tend to use opioiods. If we think about this in terms of seasons, it kind of shows as the season gets better, the number of deaths decrease. January-March is winter and the most gloomy time of the year which could result in higher number of deaths, while June-September is summer which could result in slightly lower deaths. Another factor could be holidays and how it could influence the number of deaths as well.
 
 ## Drug Use By Age
 Here is a histogram that shows the use of drugs by age:
@@ -37,16 +37,16 @@ Here is a histogram that shows the use of drugs by age:
 drug_age_plot(drug_age_data)
 ```
 
-The reason why we included this chart was to see the relationship between age and drugs. We wanted to know if there is a correlation between the two and how this could be linked to deaths at a certain age due to drug overdose. By including a histogram, it allows us to easily analyze the different ages and the number of people of that age group uses drugs. From this table, it shows that the highest age group that uses the most drugs are from ages 35-49. This is surprising as we would assume teenagers would be the highest, but from the table, it shows that ages 22-25 are the second highest when it comes to drug use. Another information that was revealed that was surprising was that from ages 12-17, there are more number of users of drugs than from ages 18-21.
+The reason why we included this chart was to see the relationship between age and drugs. We wanted to know if there is a correlation between the two and how this could be linked to deaths at a certain age due to drug overdose. By including a histogram, it allows us to easily analyze the different ages and the number of people of that age group uses drugs. From this table, it shows that the highest age group that uses the most drugs are from ages 35-49. This is surprising as we would assume teenagers would be the highest, but from the table, it shows that ages 22-25 are the second highest when it comes to drug use. Other information that was revealed that was surprising was that from ages 12-17, there are more number of users of drugs than from ages 18-21.
 
-## Deaths By Drug Overdose From 2015-2018
+## 9 Deadliest Drugs From 2015 - 2018
 Here is a pie chart that shows the number of drug overdose deaths by state:
 
-```{r plot_drug_overdose, echo = FALSE}
+```{r plot_drug_overdose, echo = FALSE, results = "hide"}
 plot_drug_overdose(drug_overdose)
 ```
 
-The reason why we included this map was to see the relationship between a specific area and drug overdose deaths. We wanted to know if certain states had higher drug overdose deaths and analyze to see if there could be a factor in play. By using a map that is color-coated and can be hovered over for more information, it allows us to visually see which states have higher death counts just based on the darkness of the color. From this data, it shows that the state with the highest number of deaths due to drug overdose is Oklahoma. The state with the lowest number of deaths due to drug overdose is Missouri with only 9155 deaths. By looking at these states, we can think about whether different factors could be at play in the number of deaths by drug overdose. For example, political laws could be a factor that could affect the use of the drugs in that state.
+The reason why we included a pie chart was to show the nine deadliest drugs from 2015-2018. By using a pie chart, we are able to able the different drugs that are used which can cause the most harm and lead to death. By knowing which drugs are the most deadliest, it can help prevent people from using these drugs. From the chart, it reveals that the most deadliest drug is synthetic opioids. Yet, if we look at all the values, all the values are very close to each other.  The deadliest drug with the lowest value is psychostimulants. From this chart, this not only tell us which is the deadliest drug, but because their values are so close, it shows that these drugs should be taken seriously and could be as deadly despite the difference in value. 
 
 ## Place of Death from Drug Overdose in Connecticut
 Here is a map that shows the different places where people died from drug overdose in Connecticut:
@@ -55,13 +55,4 @@ Here is a map that shows the different places where people died from drug overdo
 plot_accident_drug(accident_drug)
 ```
 
-The reason we included this map was to show a specific state, specifically Connecticut and how race, sex and the cause of death from drug use are related. By having the map, we are able to see different points of which counties have more concentrated points, which means more deaths and by clicking on the points, we are able to get information about the specific person. But, also by including the color of the different races, we are able to visiualize which race had the most deaths just in the state of Connecticut. From this data, it reveals that the majority of the deaths in Connecticut are white people.
-
-
-
-
-
-
-
-
-
+The reason we included this map was to show a specific state, specifically Connecticut and how race, sex and the cause of death from drug use are related. By having the map, we are able to see different points of which counties have more concentrated points, which means more deaths and by clicking on the points, we are able to get information about the specific person. But, also by including the color of the different races, we are able to visiualize which race had the most deaths just in the state of Connecticut. From this data, it reveals that the majority of the deaths in Connecticut are white people and if we click on the points, many of the points that are clicked on are mostly men. Also, when you click on a specific point, it reveals what was the cause of the death of that specific person.
