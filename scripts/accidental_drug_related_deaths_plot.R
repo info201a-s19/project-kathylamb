@@ -7,6 +7,8 @@ library(dplyr)
 
 # Focus on places of death within CT and how race, sex, and COD (cause of death) relate
 
+plot_accident_drug <- function(accident_drug){
+
 # Manipulate data to get rid of NA values and show longitude and latitude for map
 
 accident_drug_locations <- accident_drug %>%
@@ -51,3 +53,7 @@ plot_map <- leaflet(data = locations) %>%
     values = ~Race,
     opacity = 1
   )
+
+plot_map
+
+}
