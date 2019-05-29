@@ -1,4 +1,5 @@
 library(shiny)
+library(plotly)
 
 # Create a page for the Overview tab.
 overview_content <- fluidPage(
@@ -22,7 +23,9 @@ overview_content <- fluidPage(
              each column gives the frequency and use of a different drug. 
              We have another dataset that gives information about the number 
              of drug overdose deaths or gives the number of deaths from a 
-             specifc drug in a specific state from 2015-2018."),
+             specifc drug in a specific state from 2015-2018. The last dataset
+             we have gives information about the accidental drug related deaths
+             that occurred from 2012-2018."),
       # Citation: Toxicoman-Substance Abuse. 2018. Image. 
       # https://commons.wikimedia.org/wiki/File:Toxicoman_-_Substance_
       # abuse.jpg.
@@ -39,7 +42,38 @@ overview_panel <- tabPanel(
   overview_content
 )
 
+# Create a sidebar panel for the data: drug-use-by-age.
+age_sidebar_content <- sidebarPanel(
+  selectInput(
+    "drug_var",
+    label = "Choose Drug",
+    choice = list("Marijuana" = "Marijuana", "Cocaine" = "Cocaine",
+                  "Crack" = "Crack", "Heroin" = "Heroin",
+                  "Hallucinogen" = "Hallucinogen", "Inhalant" = "Inhalant",
+                  "Pain Reliever" = "Pain_Reliever", "Oxytocin" = "Oxytocin",
+                  "Tranquilizer" = "Tranquilizer", "Stimulant" = "Stimulant",
+                  "Meth" = "Meth", "Sedative" = "Sedative"
+                  )
+  )
+)
+
+# Create a main panel for the data: drug-use-by-age.
+age_main_content <- mainPanel(
+  plotlyOutput("histogram")
+)
+
+# Create a tab panel for the data: drug-use-by-age.
+age_panel <- tabPanel(
+  "Drug Use vs. Age",
+  sidebarLayout(
+    age_sidebar_content,
+    age_main_content
+  )
+)
+
+# Create a navigation bar that allows you to navigate through multiple pages.
 ui <- navbarPage(
   "Death Caused By Drug Use",
-  overview_panel
+  overview_panel,
+  age_panel
 )
