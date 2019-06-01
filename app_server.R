@@ -22,6 +22,8 @@ colnames(drug_age_data) <- c("Age", "Marijuana", "Cocaine", "Crack", "Heroin",
                              "Oxytocin", "Tranquilizer", "Stimulant", "Meth",
                              "Sedative")
 
+# Data wrangling the data: 
+
 # Create server to update and render the different plots.
 server <- function(input, output) {
   
