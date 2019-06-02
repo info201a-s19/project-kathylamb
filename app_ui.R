@@ -61,14 +61,9 @@ age_sidebar_content <- sidebarPanel(
 # Create a main panel for the data: drug-use-by-age.
 age_main_content <- mainPanel(
   plotlyOutput("drug_by_age"), 
-  p("The question we are looking to understand is to see if the use of
-         drugs increases with age. From this chart, it shows the percentage of
-         drug use for each age group based on the selected drug. We are able to
-         analyze which drugs are used more by which age group which could give
-         us an idea of why certain people die at a certain age due to drugs.
-         By looking at the percent use of the drug and the age, it could let us
-         know if age and the type of drug used could be correlated to death by 
-         drug use.")
+  p("This chart is helping us answer the question if drug use increases as
+    age increases by comparing the percent drug use of different drugs to
+    the age groups.")
 )
 
 # Create a tab panel for the data: drug-use-by-age.
@@ -133,7 +128,10 @@ induced_deaths_sidebar_content <- sidebarPanel(
 
 # Create a main panel for the data: drug_induced_deaths_1999-2015.
 induced_deaths_main_content <- mainPanel(
-  plotlyOutput("pop_vs_deaths")
+  plotlyOutput("pop_vs_deaths"),
+  p("This chart is helping us understand if there is a correlation between
+    the increase in population growth every year with the number of deaths due
+    to drug overdoses by looking at different states.")
 )
 
 # Create a tab panel for the data: drug_induced_deaths_1999-2015.

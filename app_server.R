@@ -16,6 +16,12 @@ drug_age_data <- drug_use_by_age %>%
          hallucinogen.use, inhalant.use, pain.releiver.use, oxycontin.use, 
          tranquilizer.use, stimulant.use, meth.use, sedative.use)
 
+# Change the column names of the data: drug-use-by-age.
+colnames(drug_age_data) <- c("Age", "Marijuana", "Cocaine", "Crack", "Heroin",
+                             "Hallucinogen", "Inhalant", "Pain_Reliever",
+                             "Oxytocin", "Tranquilizer", "Stimulant", "Meth",
+                             "Sedative")
+
 # Data wrangling the data: drug_overdose_death.
 drug_od_year_data <- drug_od %>%
   select(Year, Indicator, Data.Value) %>%
@@ -37,12 +43,6 @@ drug_od_month_data <- drug_od %>%
   distinct(Indicator, .keep_all = TRUE) %>%
   select(Indicator, count) 
 
-# Change the column names of the data: drug-use-by-age.
-colnames(drug_age_data) <- c("Age", "Marijuana", "Cocaine", "Crack", "Heroin",
-                             "Hallucinogen", "Inhalant", "Pain_Reliever",
-                             "Oxytocin", "Tranquilizer", "Stimulant", "Meth",
-                             "Sedative")
-
 # Create server to update and render the different plots.
 server <- function(input, output) {
   
@@ -58,7 +58,6 @@ server <- function(input, output) {
   
   output$pop_vs_deaths <- renderPlotly({
     drug_induced_deaths_select <- drug_induced_deaths %>% 
-      rename(State = ï..State) %>%
       filter(State == input$state_var) %>% 
       select(State, Year, Deaths, Population, Crude.Rate)
     
