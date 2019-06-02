@@ -80,6 +80,23 @@ age_panel <- tabPanel(
   )
 )
 
+# Create a tab panel for the data: drug_overdose_death.
+overdose_panel <- tabPanel(
+  "Drug Overdose Death",
+  sidebarLayout(
+    sidebarPanel(
+      radioButtons(
+        inputId = "overdose",
+        label = "Choose an option",
+        choices = c("Indicator", "Month")
+      )
+    ),
+    mainPanel(
+      plotOutput("overdose")
+    )
+  )
+)
+
 # Create a sidebar panel for the data: drug_induced_deaths_1999-2015.
 induced_deaths_sidebar_content <- sidebarPanel(
   selectInput(
@@ -133,5 +150,6 @@ ui <- navbarPage(
   "Death Caused By Drug Use",
   overview_panel,
   age_panel,
-  induced_deaths_panel
+  induced_deaths_panel,
+  overdose_panel
 )

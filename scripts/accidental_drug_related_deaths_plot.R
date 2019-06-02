@@ -1,5 +1,5 @@
 # Read Accidental_Drug_Related_Deaths_2012-2018.csv file
-accident_drug <- read.csv("../data/Accidental_Drug_Related_Deaths_2012-2018.csv", na.strings = c("", "NA"), stringsAsFactors = FALSE)
+accident_drug <- read.csv("data/Accidental_Drug_Related_Deaths_2012-2018.csv", na.strings = c("", "NA"), stringsAsFactors = FALSE)
 
 # Load libraries
 library(leaflet)

@@ -16,6 +16,27 @@ drug_age_data <- drug_use_by_age %>%
          hallucinogen.use, inhalant.use, pain.releiver.use, oxycontin.use, 
          tranquilizer.use, stimulant.use, meth.use, sedative.use)
 
+# Data wrangling the data: drug_overdose_death.
+drug_od_year_data <- drug_od %>%
+  select(Year, Indicator, Data.Value) %>%
+  filter(Indicator != "Percent with drugs specified") %>%
+  filter(Indicator != "Number of Deaths") %>%
+  group_by(Indicator, Year) %>%
+  mutate(Data.Value =  as.numeric(gsub(",","", Data.Value))) %>%
+  mutate(count = sum(as.numeric(Data.Value))) %>%
+  distinct(Indicator, .keep_all = TRUE) %>%
+  select(Year, Indicator, count) 
+
+drug_od_month_data <- drug_od %>%
+  select(Month, Indicator, Data.Value) %>%
+  filter(Indicator != "Percent with drugs specified") %>%
+  filter(Indicator != "Number of Deaths") %>%
+  group_by(Indicator, Month) %>%
+  mutate(Data.Value =  as.numeric(gsub(",","", Data.Value))) %>%
+  mutate(count = sum(as.numeric(Data.Value))) %>%
+  distinct(Indicator, .keep_all = TRUE) %>%
+  select(Indicator, count) 
+
 # Change the column names of the data: drug-use-by-age.
 colnames(drug_age_data) <- c("Age", "Marijuana", "Cocaine", "Crack", "Heroin",
                              "Hallucinogen", "Inhalant", "Pain_Reliever",
@@ -37,6 +58,7 @@ server <- function(input, output) {
   
   output$pop_vs_deaths <- renderPlotly({
     drug_induced_deaths_select <- drug_induced_deaths %>% 
+      rename(State = ï..State) %>%
       filter(State == input$state_var) %>% 
       select(State, Year, Deaths, Population, Crude.Rate)
     
@@ -50,6 +72,25 @@ server <- function(input, output) {
                           input$state_var)) +
       geom_smooth(mapping = aes(x = Deaths, y = Population))
       
+  })
+  
+  output$overdose <- renderPlot({
+    
+    if(input$overdose == "Indicator") {
+      title <- "Drug Overdose Deaths"
+      plot_overdose <- ggplot(drug_od_year_data) +
+        geom_col(mapping = aes_string(x = names(drug_od_year_data)[1], y = names(drug_od_year_data)[3], fill = input$overdose ), position = "dodge")
+      
+      return(plot_overdose)
+    } 
+    if(input$overdose == "Month") {
+      plot_overdose <- ggplot(drug_od_month_data) +
+        geom_col(mapping = aes_string(x = names(drug_od_month_data)[1], y = names(drug_od_month_data)[3], fill = names(drug_od_month_data)[2] )) +
+        facet_wrap(~Indicator) +
+        coord_flip()
+      
+      return(plot_overdose)
+    }
   })
   
 }
