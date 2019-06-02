@@ -3,8 +3,8 @@ library(dplyr)
 
 
 # Read in the different datasets.
-accidental_drug <- read.csv("data/Accidental_Drug_Related_Deaths_2012-2018.csv"
-                            , stringsAsFactors = FALSE)
+drug_induced_deaths <- read.csv("data/drug_induced_deaths_1999-2015.csv", 
+                           stringsAsFactors = FALSE)
 drug_use_by_age <- read.csv("data/drug-use-by-age.csv", 
                             stringsAsFactors = FALSE)
 drug_od <- read.csv("data/VSRR_Provisional_Drug_Overdose_Death_Counts.csv", 
@@ -22,19 +22,34 @@ colnames(drug_age_data) <- c("Age", "Marijuana", "Cocaine", "Crack", "Heroin",
                              "Oxytocin", "Tranquilizer", "Stimulant", "Meth",
                              "Sedative")
 
-# Data wrangling the data: 
-
 # Create server to update and render the different plots.
 server <- function(input, output) {
   
-  output$histogram <- renderPlotly({
+  output$drug_by_age <- renderPlotly({
     title <- paste0(gsub("_", " ",input$drug_var), " Use vs. Age")
-    plot_histogram <- ggplot(drug_age_data) +
+    plot_drug_by_age <- ggplot(drug_age_data) +
       geom_col(mapping = aes_string(x = "Age", y = input$drug_var )) +
       labs(y = paste0(gsub("_", " ",input$drug_var), " Use (%)"), 
            title = title)
     
-    return(ggplotly(plot_histogram))
+    return(ggplotly(plot_drug_by_age))
+  })
+  
+  output$pop_vs_deaths <- renderPlotly({
+    drug_induced_deaths_select <- drug_induced_deaths %>% 
+      filter(State == input$state_var) %>% 
+      select(State, Year, Deaths, Population, Crude.Rate)
+    
+    mytext <- paste0("Year: ", drug_induced_deaths_select$Year, "<br>", 
+                     "Crude Rate: ", drug_induced_deaths_select$Crude.Rate)
+    
+    plot_pop_vs_deaths <- ggplot(drug_induced_deaths_select) +
+      geom_point(mapping = aes(x = Deaths, y = Population, 
+                               text = mytext)) + 
+      labs(title = paste0("Population vs. Deaths From Drugs in ", 
+                          input$state_var)) +
+      geom_smooth(mapping = aes(x = Deaths, y = Population))
+      
   })
   
 }
