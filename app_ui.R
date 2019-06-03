@@ -126,6 +126,7 @@ induced_deaths_panel <- tabPanel(
   )
 )
 
+<<<<<<< HEAD
 # Create a sidebar panel for the data: drug_overdose_death.
 overdose_sidebar_content <- sidebarPanel(
   selectInput(
@@ -182,6 +183,40 @@ overdose_panel <- tabPanel(
     overdose_sidebar_content,
     overdose_main_content
   )
+=======
+summary_content <- fluidPage(
+  includeCSS("styles.css"),
+  h1("Summary Takeaways"),
+  tags$section(
+    list(
+      p("From the 'Drug Use vs. Age' bar chart, it is clear that the ages of 
+        most use of drugs is from 16 to 20. We can also see a general decline in 
+        drug use as the age increases. This could possibly explain why certain 
+        people die at a young age due to the use of drugs."),
+      p("From the 'Drug Overdose Death' bar chart, we can see from the years 
+        2015 to 2018, the number of drug overdose deaths is the highest compared 
+        to other deaths of drug use that are not caused by overdose. In 2017, 
+        the number of drug overdose deaths peeked with a count of over 1500000 
+        deaths. It is also clear that in the months October, November, and 
+        December, there are less drug overdose deaths."),
+      p("From the 'Population vs. Deaths' scatter plot, it shows that there is a 
+        positive correlation between the population growth of a state and the 
+        deaths due to drug overdose every year. In all 50 states included in the 
+        dataset, we generally see deaths caused by drug overdose increases as 
+        the population grows. Yet, there could be other factors that could be 
+        in play such as drug laws."),
+      p("To answer our general question: 'Does drug use increases as age 
+        increases? Have the number of deaths increased over the years for 
+        the younger generation?' Drug use decreases as age increases. The 
+        number of drug overdose deaths peeked in 2017 and decreased in 2018.")
+      )
+  )
+)
+
+summary_panel <- tabPanel(
+  "Summary Takeaways",
+  summary_content
+>>>>>>> 1a9736bcf9f2e71f3bfebefd7f2babf51ebd2324
 )
 
 # Create a navigation bar that allows you to navigate through multiple pages.
@@ -190,5 +225,6 @@ ui <- navbarPage(
   overview_panel,
   age_panel,
   induced_deaths_panel,
-  overdose_panel
+  overdose_panel,
+  summary_panel
 )
