@@ -71,4 +71,12 @@ server <- function(input, output) {
     return(ggplotly(plot_deaths_month))
   })
   
+  output$age_drug_trend <- renderTable({
+    drug <- input$age_trend_rb
+    age_drug_trend <- drug_age_data %>% 
+      filter(drug == max(drug)) %>% 
+      select(Age, drug)
+    
+    age_drug_trend
+  })
 }

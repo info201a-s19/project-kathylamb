@@ -194,6 +194,14 @@ summary_content <- fluidPage(
         most use of drugs is from 16 to 20. We can also see a general decline in 
         drug use as the age increases. This could possibly explain why certain 
         people die at a young age due to the use of drugs."),
+      fluidRow(
+        column(6, selectInput(inputId = "age_trend_rb", label = "Select Drug:",
+                  choices = c("Marijuana", "Cocaine", "Crack", "Heroin",
+                              "Hallucinogen", "Inhalant", "Pain_Reliever", 
+                              "Oxytocin", "Tranquilizer", "Stimulant", "Meth",
+                              "Sedative"))),
+        column(6, tableOutput("age_drug_trend"))
+      ),
       p("From the 'Drug Overdose Death' bar chart, we can see from the years 
         2015 to 2018, the number of drug overdose deaths is the highest compared 
         to other deaths of drug use that are not caused by overdose. In 2017, 
