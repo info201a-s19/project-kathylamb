@@ -202,18 +202,26 @@ summary_content <- fluidPage(
                               "Sedative"))),
         column(6, tableOutput("age_drug_trend"))
       ),
-      p("From the 'Drug Overdose Death' bar chart, we can see from the years 
-        2015 to 2018, the number of drug overdose deaths is the highest compared 
-        to other deaths of drug use that are not caused by overdose. In 2017, 
-        the number of drug overdose deaths peeked with a count of over 1500000 
-        deaths. It is also clear that in the months October, November, and 
-        December, there are less drug overdose deaths."),
       p("From the 'Population vs. Deaths' scatter plot, it shows that there is a 
         positive correlation between the population growth of a state and the 
         deaths due to drug overdose every year. In all 50 states included in the 
         dataset, we generally see deaths caused by drug overdose increases as 
         the population grows. Yet, there could be other factors that could be 
         in play such as drug laws."),
+      p("From the 'Population vs. Deaths' bar chart, we can see that most deaths 
+        of drug overdose occur at the end of the years (October, November, 
+        December), and least of them occur at the beginning of the years
+        (January, February, March). However, from 2015 to 2018, we can see an 
+        increase in the least drug overdose deaths months. For example, drug 
+        overdose deaths have increased from a total of 378 to 413 deaths in the 
+        first three months of the years in Alabama; drug overdose deaths have 
+        also increased from a total of 2171 to 2365 deaths in the first three 
+        months of the years in Alabama. This pattern can be seen throughout all 
+        53 states included in the dataset. Below is an table of 10 example 
+        states from the dataset that shows this pattern."),
+      fluidRow(
+        tableOutput("overdose_month_summary")
+      ),
       p("To answer our general question: 'Does drug use increases as age 
         increases? Have the number of deaths increased over the years for 
         the younger generation?' Drug use decreases as age increases. The 
