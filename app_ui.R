@@ -75,23 +75,6 @@ age_panel <- tabPanel(
   )
 )
 
-# Create a tab panel for the data: drug_overdose_death.
-overdose_panel <- tabPanel(
-  "Drug Overdose Death",
-  sidebarLayout(
-    sidebarPanel(
-      radioButtons(
-        inputId = "overdose",
-        label = "Choose an option",
-        choices = c("Indicator", "Month")
-      )
-    ),
-    mainPanel(
-      plotOutput("overdose")
-    )
-  )
-)
-
 # Create a sidebar panel for the data: drug_induced_deaths_1999-2015.
 induced_deaths_sidebar_content <- sidebarPanel(
   selectInput(
@@ -140,6 +123,64 @@ induced_deaths_panel <- tabPanel(
   sidebarLayout(
     induced_deaths_sidebar_content,
     induced_deaths_main_content
+  )
+)
+
+# Create a sidebar panel for the data: drug_overdose_death.
+overdose_sidebar_content <- sidebarPanel(
+  selectInput(
+    "state_var2",
+    label = "Choose State",
+    choice = list("Alabama" = "Alabama", "Alaska" = "Alaska",
+                  "Arizona" = "Arizona", "California" = "California",
+                  "Colorado" = "Colorado", "Connecticut" = "Connecticut",
+                  "Delaware" = "Delaware", "District of Columbia" = 
+                  "District of Columbia", "Florida" = "Florida", "Georgia" = 
+                  "Georgia", "Hawaii" = "Hawaii", "Idaho" = "Idaho",
+                  "Illinois" = "Illinois", "Indiana" = "Indiana", "Iowa" =
+                  "Iowa", "Kansas" = "Kansas", "Kentucky" = "Kentucky", 
+                  "Louisiana" = "Louisiana", "Maine" = "Maine", "Maryland" =
+                  "Maryland", "Massachusetts" = "Massachusetts", "Michigan" = 
+                  "Michigan", "Minnesota" = "Minnesota", "Mississippi" = 
+                  "Mississippi", "Missouri" = "Missouri", 
+                  "Montana" = "Montana", "Nebraska" = "Nebraska", "Nevada" =
+                  "Nevada", "New Hampshire" = "New Hampshire", "New Jersey" =
+                  "New Jersey", "New Mexico" = "New Mexico", "New York" = 
+                  "New York", "North Carolina" = "North Carolina",
+                  "North Dakota" = "North Dakota", "Ohio" = "Ohio",
+                  "Oklahoma" = "Oklahoma", "Oregon" = "Oregon",
+                  "Pennsylvania" = "Pennsylvania", "Rhode Island" =
+                  "Rhode Island", "South Carolina" = "South Carolina",
+                  "South Dakota" = "South Dakota", "Tennessee" = "Tennessee",
+                  "Texas" = "Texas", "Utah" = "Utah", "Vermont" = "Vermont",
+                  "Virginia" = "Virginia", "Washington" = "Washington", 
+                  "West Virginia" = "West Virginia", "Wisconsin" = "Wisconsin",
+                  "Wyoming" = "Wyoming"),
+    selected = "Alabama"
+  ),
+  radioButtons(
+    "year_var",
+    label = "Choose a Year",
+    choices = list("2015" = "2015", "2016" = "2016", "2017" = "2017", 
+                   "2018" = "2018"),
+    selected = "2015"
+  )
+)
+
+# Create a main panel for the data: drug_overdose_death.
+overdose_main_content <- mainPanel(
+  plotlyOutput("drug_od_death"),
+  p("This chart is helping us understand the correlation between the number of 
+    drug overdose deaths and the month by looking at a specific state and
+    year.")
+)
+
+# Create a tab panel for the data: drug_overdose_death.
+overdose_panel <- tabPanel(
+  "Drug Overdose Death",
+  sidebarLayout(
+    overdose_sidebar_content,
+    overdose_main_content
   )
 )
 
