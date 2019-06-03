@@ -79,4 +79,28 @@ server <- function(input, output) {
     
     age_drug_trend
   })
+  
+  output$overdose_month_summary <- renderTable({
+    month_2015_summary <- drug_od %>% 
+      group_by(State) %>% 
+      filter(Month == "January" | Month == "February" | Month == "March") %>% 
+      filter(Year == "2015") %>% 
+      filter(Indicator == "Number of Drug Overdose Deaths") %>% 
+      summarise("Drug Overdose Deaths From January to March in 2015" = 
+                  sum(as.integer(Data.Value), na.rm = T))
+    month_2018_summary <- drug_od %>% 
+      group_by(State) %>% 
+      filter(Month == "January" | Month == "February" | Month == "March") %>% 
+      filter(Year == "2018") %>% 
+      filter(Indicator == "Number of Drug Overdose Deaths") %>% 
+      summarise("Drug Overdose Deaths From January to March in 2018" = 
+                  sum(as.integer(Data.Value), na.rm = T))
+    month_summary <- left_join(month_2015_summary, month_2018_summary, 
+                               by = "State")
+    month_summary[month_summary == 0] <- NA
+    month_summary <- month_summary[complete.cases(month_summary),]
+    month_summary <- month_summary %>% 
+      head(10)
+    month_summary
+  })
 }
