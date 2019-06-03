@@ -126,7 +126,6 @@ induced_deaths_panel <- tabPanel(
   )
 )
 
-<<<<<<< HEAD
 # Create a sidebar panel for the data: drug_overdose_death.
 overdose_sidebar_content <- sidebarPanel(
   selectInput(
@@ -183,7 +182,9 @@ overdose_panel <- tabPanel(
     overdose_sidebar_content,
     overdose_main_content
   )
-=======
+)
+
+# Create a tab panel for the summary.
 summary_content <- fluidPage(
   includeCSS("styles.css"),
   h1("Summary Takeaways"),
@@ -216,7 +217,6 @@ summary_content <- fluidPage(
 summary_panel <- tabPanel(
   "Summary Takeaways",
   summary_content
->>>>>>> 1a9736bcf9f2e71f3bfebefd7f2babf51ebd2324
 )
 
 # Create a navigation bar that allows you to navigate through multiple pages.
