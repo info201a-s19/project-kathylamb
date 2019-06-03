@@ -189,10 +189,12 @@ summary_content <- fluidPage(
   h1("Summary Takeaways"),
   tags$section(
     list(
-      p("From the 'Drug Use vs. Age' bar chart, it is clear that the ages of 
-        most use of drugs is from 16 to 20. We can also see a general decline in 
-        drug use as the age increases. This could possibly explain why certain 
-        people die at a young age due to the use of drugs."),
+      p("From the 'Drug Use vs. Age' bar chart, it is clear that the age of 
+        most use of drugs is around 20 with exceptions of Heroin(age 22-23) 
+        and Inhalant(age 16). We can also see a general decline in drug use as 
+        the age increases. This could possibly explain why certain people die
+        at a young age due to the use of drugs. Below is a table that shows the
+        most popular age of people using different types of drugs."),
       fluidRow(
         column(6, selectInput(inputId = "age_trend_rb", label = "Select Drug:",
                   choices = list("Marijuana"= "Marijuana", "Cocaine" = "Cocaine", "Crack" = "Crack", "Heroin" = "Heroin",
