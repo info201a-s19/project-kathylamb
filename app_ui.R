@@ -171,7 +171,7 @@ overdose_sidebar_content <- sidebarPanel(
 overdose_main_content <- mainPanel(
   plotlyOutput("drug_od_death"),
   p("This chart is helping us understand the correlation between the number of 
-    drug overdose deaths and the month by looking at a specific state and
+    drug overdose deaths and the months by looking at a specific state and
     year.")
 )
 
@@ -186,7 +186,6 @@ overdose_panel <- tabPanel(
 
 # Create a tab panel for the summary.
 summary_content <- fluidPage(
-  includeCSS("styles.css"),
   h1("Summary Takeaways"),
   tags$section(
     list(
