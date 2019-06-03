@@ -148,10 +148,10 @@ summary_content <- fluidPage(
   h1("Summary Takeaways"),
   tags$section(
     list(
-      p("From the 'Drug Use vs. Age' bar chart, it is clear that the age of most 
-        use of drugs is 16. We can also see a decline in drug use as the age 
-        increases. This could possibly explain why certain people die at a young 
-        age due to the use of drugs."),
+      p("From the 'Drug Use vs. Age' bar chart, it is clear that the ages of 
+        most use of drugs is from 16 to 20. We can also see a general decline in 
+        drug use as the age increases. This could possibly explain why certain 
+        people die at a young age due to the use of drugs."),
       p("From the 'Drug Overdose Death' bar chart, we can see from the years 
         2015 to 2018, the number of drug overdose deaths is the highest compared 
         to other deaths of drug use that are not caused by overdose. In 2017, 
