@@ -73,10 +73,10 @@ server <- function(input, output) {
   
   output$age_drug_trend <- renderTable({
     drug <- input$age_trend_rb
+    val<- max(drug_age_data[[drug]])
     age_drug_trend <- drug_age_data %>% 
-      filter(drug == max(drug)) %>% 
+      filter_(paste0(drug,"==", val)) %>% 
       select(Age, drug)
-    
     age_drug_trend
   })
   
@@ -103,4 +103,16 @@ server <- function(input, output) {
       head(10)
     month_summary
   })
+  
+  output$overdose_pop_graph <- renderTable({
+    overdose_trend <- drug_induced_deaths %>% 
+      group_by(State, Year) %>% 
+#      filter(Year == unique(Year)) %>%
+      filter(State == unique(State)) %>% 
+      mutate(Deaths = sum(Deaths)) %>% 
+      mutate(Population = sum(Population))
+    
+  })    
 }
+
+

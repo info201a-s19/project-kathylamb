@@ -195,10 +195,10 @@ summary_content <- fluidPage(
         people die at a young age due to the use of drugs."),
       fluidRow(
         column(6, selectInput(inputId = "age_trend_rb", label = "Select Drug:",
-                  choices = c("Marijuana", "Cocaine", "Crack", "Heroin",
-                              "Hallucinogen", "Inhalant", "Pain_Reliever", 
-                              "Oxytocin", "Tranquilizer", "Stimulant", "Meth",
-                              "Sedative"))),
+                  choices = list("Marijuana"= "Marijuana", "Cocaine" = "Cocaine", "Crack" = "Crack", "Heroin" = "Heroin",
+                              "Hallucinogen" = "Hallucinogen", "Inhalant" = "Inhalant", "Pain_Reliever" = "Pain_Reliever", 
+                              "Oxytocin" = "Oxytocin", "Tranquilizer" = "Tranquilizer", "Stimulant" = "Stimulant", "Meth" = "Meth",
+                              "Sedative" = "Sedative"))),
         column(6, tableOutput("age_drug_trend"))
       ),
       p("From the 'Population vs. Deaths' scatter plot, it shows that there is a 
