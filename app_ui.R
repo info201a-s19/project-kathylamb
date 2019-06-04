@@ -209,6 +209,7 @@ summary_content <- fluidPage(
         dataset, we generally see deaths caused by drug overdose increases as 
         the population grows. Yet, there could be other factors that could be 
         in play such as drug laws."),
+      plotlyOutput("overdose_pop_graph"),
       p("From the 'Population vs. Deaths' bar chart, we can see that most deaths 
         of drug overdose occur at the end of the years (October, November, 
         December), and least of them occur at the beginning of the years
