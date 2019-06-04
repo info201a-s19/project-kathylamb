@@ -117,7 +117,36 @@ server <- function(input, output) {
     
     return(ggplotly(od_trend_graph))
     
-  })    
+  })
+  
+  output$legal_table <- renderTable({
+    state <- c("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", 
+               "Connecticut", "Delaware", "District of Columbia", "Florida", 
+               "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", 
+               "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", 
+               "Massachusetts", "Michigan", "Minnesota", "Mississippi", 
+               "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", 
+               "New Jersey", "New Mexico", "New York", "North Carolina",
+               "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+               "Rhode Island", "South Carolina", "South Dakota","Tennessee",
+               "Texas", "Utah", "Vermont", "Virginia", "Washington", 
+               "West Virginia", "Wisconsin", "Wyoming")
+    legal_status <- c("Fully Illegal", "Fully Legal", "Mixed", "Mixed", 
+                      "Fully Legal", "Fully Legal", "Mixed", "Mixed", 
+                      "Fully Legal", "Mixed", "Mixed", "Mixed", 
+                      "Fully Illegal", "Mixed", "Mixed", "Mixed", 
+                      "Fully Illegal", "Fully Illegal", "Mixed", 
+                      "Fully Legal", "Mixed", "Fully Legal", "Fully Legal",
+                      "Mixed", "Fully Illegal", "Mixed", "Mixed", 
+                      "Fully Illegal", "Fully Legal", "Mixed", "Mixed", 
+                      "Mixed", "Mixed", "Fully Illegal", "Mixed", "Mixed", 
+                      "Mixed", "Fully Legal", "Mixed", "Mixed", 
+                      "Fully Illegal", "Fully Illegal", "Fully Illegal",
+                      "Mixed", "Mixed", "Fully Legal", "Mixed", 
+                      "Fully Legal", "Mixed", "Fully Illegal", "Fully Illegal")
+    df <- data.frame(state, legal_status)
+    df
+  })
 }
 
 

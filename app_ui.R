@@ -208,8 +208,15 @@ summary_content <- fluidPage(
         deaths due to drug overdose every year. In all 50 states included in the 
         dataset, we generally see deaths caused by drug overdose increases as 
         the population grows. Yet, there could be other factors that could be 
-        in play such as drug laws."),
+        in play such as drug laws. Below is a scatter plot that shows an
+        increase in deaths that are caused by drug overdose as the population
+        grows throughout each year, and a table showing the Marijuana 
+        legality by state to reinforce a factor that could influence our 
+        data."),
       plotlyOutput("overdose_pop_graph"),
+      fluidRow(
+        tableOutput("legal_table")
+      ),
       p("From the 'Population vs. Deaths' bar chart, we can see that most deaths 
         of drug overdose occur at the end of the years (October, November, 
         December), and least of them occur at the beginning of the years
