@@ -5,7 +5,7 @@ section a {
 }
 
 body {
-  background-color: lightblue;
+  background-color: #d1e1ef;
 }
 
 h1 {
@@ -23,9 +23,9 @@ img {
 }
 
 .navbar-default {
-  background-color: black;
+  background-color: #D1D1D1;
 }
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav li a {
-  color: white;
+  color: black;
 }

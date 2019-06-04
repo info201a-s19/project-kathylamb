@@ -218,7 +218,7 @@ summary_content <- fluidPage(
         first three months of the years in Alabama; drug overdose deaths have 
         also increased from a total of 2171 to 2365 deaths in the first three 
         months of the years in Alabama. This pattern can be seen throughout all 
-        53 states included in the dataset. Below is an table of 10 example 
+        50 states included in the dataset. Below is an table of 10 example 
         states from the dataset that shows this pattern."),
       fluidRow(
         tableOutput("overdose_month_summary")
