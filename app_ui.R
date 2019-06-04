@@ -214,6 +214,7 @@ summary_content <- fluidPage(
         legality by state to reinforce a factor that could influence our 
         data."),
       plotlyOutput("overdose_pop_graph"),
+      h2("Marijuana Legality by State"),
       fluidRow(
         tableOutput("legal_table")
       ),
