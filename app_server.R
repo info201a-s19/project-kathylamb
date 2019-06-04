@@ -113,7 +113,8 @@ server <- function(input, output) {
     od_trend_graph <- ggplot(overdose_trend) +
       geom_point(mapping = aes(x = Year, y = Deaths, 
                                color = Population)) +
-      geom_line(mapping = aes(x = Year, y = Deaths, color = Population))
+      geom_line(aes(x = Year, y = Deaths)) +
+      ggtitle("Trend of Overdose Deaths and Population from 1999-2015")
     
     return(ggplotly(od_trend_graph))
     
