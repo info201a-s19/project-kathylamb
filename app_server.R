@@ -104,13 +104,18 @@ server <- function(input, output) {
     month_summary
   })
   
-  output$overdose_pop_graph <- renderTable({
+  output$overdose_pop_graph <- renderPlotly({
     overdose_trend <- drug_induced_deaths %>% 
-      group_by(State, Year) %>% 
-#      filter(Year == unique(Year)) %>%
-      filter(State == unique(State)) %>% 
-      mutate(Deaths = sum(Deaths)) %>% 
-      mutate(Population = sum(Population))
+      group_by(Year) %>% 
+      select(Year, Deaths, Population) %>% 
+      summarise("Deaths" = sum(Deaths), "Population" = sum(Population))
+    
+    od_trend_graph <- ggplot(overdose_trend) +
+      geom_point(mapping = aes(x = Year, y = Deaths, 
+                               color = Population)) +
+      geom_line(mapping = aes(x = Year, y = Deaths, color = Population))
+    
+    return(ggplotly(od_trend_graph))
     
   })    
 }
