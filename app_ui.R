@@ -199,7 +199,6 @@ overdose_sidebar_content <- sidebarPanel(
 # Create a main panel for the data: drug_overdose_death.
 overdose_main_content <- mainPanel(
   plotlyOutput("drug_od_death"),
-  p(),
   p("This chart helps us understand the relationship between the number of
     drug overdose deaths and the months by looking at a specific state and
     year.")
@@ -265,7 +264,6 @@ summary_content <- fluidPage(
                  legality by state to reinforce a factor that could influence
                  our data."),
         plotlyOutput("overdose_pop_graph"),
-        h3("Marijuana Legality by State"),
         fluidRow(
           plotlyOutput("legality_map")
         )

@@ -81,7 +81,8 @@ server <- function(input, output) {
 
     plot_deaths_month <- ggplot(drug_deaths_overdose) +
       geom_col(mapping = aes(x = Month, y = Data.Value)) +
-      labs(y = "Number of Drug Overdose Deaths", title = title)
+      labs(y = "Number of Drug Overdose Deaths", title = title) +
+      scale_x_discrete(limits = month.name)
 
     return(ggplotly(plot_deaths_month))
   })
