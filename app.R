@@ -1,4 +1,6 @@
 library(shiny)
+library(lintr)
+library(styler)
 
 # Using source to execute the other R files. This will define the ui value
 # and server function.
