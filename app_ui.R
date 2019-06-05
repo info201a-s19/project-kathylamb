@@ -61,11 +61,10 @@ age_sidebar_content <- sidebarPanel(
 # Create a main panel for the data: drug-use-by-age.
 age_main_content <- mainPanel(
   plotlyOutput("drug_by_age"), 
-  p(),
   p("This chart helps us answer the question if drug use increases as
     age increases by comparing the percent drug use of different drugs to
-    the age groups. As you select different drug choices, the histogram shape changes
-    accordingly as does the standard deviation.")
+    the age groups. As you select different drug choices, the histogram shape
+    changes accordingly as does the standard deviation.")
 )
 
 # Create a tab panel for the data: drug-use-by-age.
@@ -114,13 +113,11 @@ induced_deaths_sidebar_content <- sidebarPanel(
 # Create a main panel for the data: drug_induced_deaths_1999-2015.
 induced_deaths_main_content <- mainPanel(
   plotlyOutput("pop_vs_deaths"),
-  p(), 
-  p("This chart helps us visualize the correlation, if any or if significant, between
-    the increase in population growth every year with the number of deaths due
-    to drug overdoses by looking at different states. The trend line is in blue 
-    and the grey shadow surrounding the points and line show the correlation
-    rate."),
-  p(),
+  p("This chart helps us visualize the correlation, if any or if significant,
+    between the increase in population growth every year with the number of 
+    deaths due to drug overdoses by looking at different states. The trend line 
+    is in blue and the grey shadow surrounding the points and line show the 
+    correlation rate."),
   p("***Crude rate is expressed as the number of cases or deaths per 100,000 
     population")
 )
@@ -199,33 +196,45 @@ summary_content <- fluidPage(
   tags$section(
     navlistPanel(
       tabPanel("Drug Use v. Age",
-                 p("From the 'Drug Use vs. Age' bar chart, we can see that the age of 
-                   those with the hihgest drug use is around 20,with the exception of Heroin (ages 22-23) 
-                   and Inhalants (age 16). We also noticed a general decline in drug use as 
-                   the age increases. This could possibly explain why those of a
+                 p("From the 'Drug Use vs. Age' bar chart, we can see that the  
+                   age of those with the hihgest drug use is around 20,with the  
+                   exception of Heroin (ages 22-23) and Inhalants (age 16). We  
+                   also noticed a general decline in drug use as the age 
+                   increases. This could possibly explain why those of a 
                    younger age are more likely to die from use of drugs. Below 
                    is an interactive table that shows the most popular age of 
                    people using different substances."),
                  fluidRow(
-                   column(6, selectInput(inputId = "age_trend_rb", label = "Select Drug:",
-                                         choices = list("Marijuana"= "Marijuana", "Cocaine" = "Cocaine", "Crack" = "Crack", "Heroin" = "Heroin",
-                                                        "Hallucinogen" = "Hallucinogen", "Inhalant" = "Inhalant", "Pain_Reliever" = "Pain_Reliever", 
-                                                        "Oxytocin" = "Oxytocin", "Tranquilizer" = "Tranquilizer", "Stimulant" = "Stimulant", "Meth" = "Meth",
-                                                        "Sedative" = "Sedative"))),
+                   column(6, selectInput(inputId = "age_trend_rb", 
+                                         label = "Select Drug:",
+                                         choices = list(
+                                           "Marijuana"= "Marijuana", 
+                                           "Cocaine" = "Cocaine", 
+                                           "Crack" = "Crack", 
+                                           "Heroin" = "Heroin", 
+                                           "Hallucinogen" = "Hallucinogen", 
+                                           "Inhalant" = "Inhalant", 
+                                           "Pain_Reliever" = "Pain_Reliever", 
+                                           "Oxytocin" = "Oxytocin", 
+                                           "Tranquilizer" = "Tranquilizer", 
+                                           "Stimulant" = "Stimulant", 
+                                           "Meth" = "Meth",
+                                           "Sedative" = "Sedative"))),
                    column(6, tableOutput("age_drug_trend"))
                  )
     ),
     tabPanel("Population v. Deaths",
-               p("From the 'Population vs. Deaths' scatterplot, we can see that there is an 
-                 overall positive correlation between the population growth of a state and the 
-                 deaths due to drug overdose every year. In all 50 states, we 
-                 generally see drug induced deaths increases as the state 
-                 population grows. However, there may be other factors that could be 
-                 in play such as drug laws, family life, socioeconomic status, 
-                 and drug education. Below is a scatterplot that shows the 
-                 overall trend of drug deaths with population from 1999-2015 and
-                 a table showing marijuana legality by state to reinforce a 
-                 factor that could influence our data."),
+               p("From the 'Population vs. Deaths' scatterplot, we can see that 
+                 there is an overall positive correlation between the  
+                 population growth of a state and the deaths due to drug  
+                 overdose every year. In all 50 states, we generally see drug  
+                 induced deaths increases as the state population grows.  
+                 However, there may be other factors that could be in play such 
+                 as drug laws, family life, socioeconomic status, and drug  
+                 education. Below is a scatterplot that shows the overall trend
+                 of drug deaths with population from 1999-2015 and a table  
+                 showing marijuana legality by state to reinforce a factor that 
+                 could influence our data."),
                plotlyOutput("overdose_pop_graph"),
                h3("Marijuana Legality by State"),
                fluidRow(
@@ -239,23 +248,24 @@ summary_content <- fluidPage(
                  (October, November, December) and less of them occur at the 
                  beginning of the year (January, February, March). However, 
                  from 2015 to 2018, we can see an overall increase in the the 
-                 months with the least drug-induced deaths. For example, drug overdose deaths have 
-                 increased from a total of 378 to 413 deaths in the first three 
-                 months of the years in Alabama; drug overdose deaths have also 
-                 increased from a total of 2171 to 2365 deaths in the first 
-                 three months of the years in Alabama. This pattern can be seen 
-                 throughout all 50 states in the dataset. Below is a 
-                 table of 10 example states from the dataset that shows this 
-                 pattern."),
+                 months with the least drug-induced deaths. For example, drug  
+                 overdose deaths have increased from a total of 378 to 413 
+                 deaths in the first three months of the years in Alabama;  
+                 drug overdose deaths have also increased from a total of 2171  
+                 to 2365 deaths in the first three months of the years in 
+                 Alabama. This pattern can be seen throughout all 50 states in 
+                 the dataset. Below is a table of 10 example states from the 
+                 dataset that shows this pattern."),
                fluidRow(
                  tableOutput("overdose_month_summary")
                )
     ),
     tabPanel("Answering the General Question",
              p("To answer our general question: 'Does drug use increases as age 
-        increases? Have the number of deaths increased over the years for 
-        the younger generation?' Drug use decreases as age increases. The 
-        number of drug overdose deaths peeked in 2017 and decreased in 2018.")
+                increases? Have the number of deaths increased over the years 
+                for the younger generation?' Drug use decreases as age  
+                increases. The number of drug overdose deaths peeked in 2017 
+                and decreased in 2018.")
              )
     )
       

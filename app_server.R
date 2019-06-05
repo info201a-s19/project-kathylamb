@@ -120,19 +120,19 @@ server <- function(input, output) {
   })
   
   output$legal_table_1 <- renderTable({
-    state_1 <- c("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", 
-               "Connecticut", "Delaware", "District of Columbia", "Florida", 
-               "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", 
-               "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", 
-               "Massachusetts", "Michigan", "Minnesota", "Mississippi", 
-               "Missouri") 
+    state_1 <- c("Alabama", "Alaska", "Arizona", "Arkansas", "California", 
+                 "Colorado", "Connecticut", "Delaware", 
+                 "District of Columbia", "Florida", "Georgia", "Hawaii", 
+                 "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", 
+                 "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", 
+                 "Minnesota", "Mississippi", "Missouri") 
     legal_status_1 <- c("Fully Illegal", "Fully Legal", "Mixed", "Mixed", 
                         "Fully Legal", "Fully Legal", "Mixed", "Mixed", 
                         "Fully Legal", "Mixed", "Mixed", "Mixed", 
                         "Fully Illegal", "Mixed", "Mixed", "Mixed", 
-                        "Fully Illegal", "Fully Illegal", "Mixed", "Fully Legal",
-                        "Mixed", "Fully Legal", "Fully Legal", "Mixed", 
-                        "Fully Illegal", "Mixed") 
+                        "Fully Illegal", "Fully Illegal", "Mixed", 
+                        "Fully Legal", "Mixed", "Fully Legal", "Fully Legal", 
+                        "Mixed", "Fully Illegal", "Mixed") 
     df_1 <- data.frame("State" = state_1, "Status" = legal_status_1)
     df_1
   })
