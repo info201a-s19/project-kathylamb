@@ -111,42 +111,47 @@ server <- function(input, output) {
       summarise("Deaths" = sum(Deaths), "Population" = sum(Population))
     
     od_trend_graph <- ggplot(overdose_trend) +
-      geom_point(mapping = aes(x = Year, y = Deaths, 
-                               color = Population)) +
-      geom_line(aes(x = Year, y = Deaths)) +
-      ggtitle("Trend of Overdose Deaths and Population from 1999-2015")
+      geom_point(mapping = aes(x = Year, y = Deaths, color = Population)) +
+      geom_line(aes(x = Year, y = Deaths), show.legend = TRUE) +
+      ggtitle("Trend of Overdose Deaths and Population from 1999-2015") 
     
     return(ggplotly(od_trend_graph))
     
   })
   
-  output$legal_table <- renderTable({
-    state <- c("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", 
+  output$legal_table_1 <- renderTable({
+    state_1 <- c("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", 
                "Connecticut", "Delaware", "District of Columbia", "Florida", 
                "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", 
                "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", 
                "Massachusetts", "Michigan", "Minnesota", "Mississippi", 
-               "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", 
+               "Missouri") 
+    legal_status_1 <- c("Fully Illegal", "Fully Legal", "Mixed", "Mixed", 
+                        "Fully Legal", "Fully Legal", "Mixed", "Mixed", 
+                        "Fully Legal", "Mixed", "Mixed", "Mixed", 
+                        "Fully Illegal", "Mixed", "Mixed", "Mixed", 
+                        "Fully Illegal", "Fully Illegal", "Mixed", "Fully Legal",
+                        "Mixed", "Fully Legal", "Fully Legal", "Mixed", 
+                        "Fully Illegal", "Mixed") 
+    df_1 <- data.frame("State" = state_1, "Status" = legal_status_1)
+    df_1
+  })
+  
+  output$legal_table_2 <- renderTable ({
+    state_2 <- c("Montana", "Nebraska", "Nevada", "New Hampshire", 
                "New Jersey", "New Mexico", "New York", "North Carolina",
                "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
                "Rhode Island", "South Carolina", "South Dakota","Tennessee",
                "Texas", "Utah", "Vermont", "Virginia", "Washington", 
                "West Virginia", "Wisconsin", "Wyoming")
-    legal_status <- c("Fully Illegal", "Fully Legal", "Mixed", "Mixed", 
-                      "Fully Legal", "Fully Legal", "Mixed", "Mixed", 
-                      "Fully Legal", "Mixed", "Mixed", "Mixed", 
-                      "Fully Illegal", "Mixed", "Mixed", "Mixed", 
-                      "Fully Illegal", "Fully Illegal", "Mixed", 
-                      "Fully Legal", "Mixed", "Fully Legal", "Fully Legal",
-                      "Mixed", "Fully Illegal", "Mixed", "Mixed", 
-                      "Fully Illegal", "Fully Legal", "Mixed", "Mixed", 
-                      "Mixed", "Mixed", "Fully Illegal", "Mixed", "Mixed", 
-                      "Mixed", "Fully Legal", "Mixed", "Mixed", 
-                      "Fully Illegal", "Fully Illegal", "Fully Illegal",
-                      "Mixed", "Mixed", "Fully Legal", "Mixed", 
-                      "Fully Legal", "Mixed", "Fully Illegal", "Fully Illegal")
-    df <- data.frame(state, legal_status)
-    df
+    legal_status_2 <- c("Mixed", "Fully Illegal", "Fully Legal", "Mixed", 
+                        "Mixed", "Mixed", "Mixed", "Fully Illegal", "Mixed", 
+                        "Mixed", "Mixed", "Fully Legal", "Mixed", "Mixed",
+                        "Fully Illegal", "Fully Illegal", "Fully Illegal", "Mixed",
+                        "Mixed", "Fully Legal", "Mixed", "Fully Legal", "Mixed", 
+                        "Fully Illegal", "Fully Illegal")
+    df_2 <- data.frame("State" = state_2, "Status" = legal_status_2)
+    df_2
   })
 }
 
