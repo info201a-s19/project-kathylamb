@@ -264,13 +264,14 @@ summary_content <- fluidPage(
                  legality by state to reinforce a factor that could influence
                  our data."),
         plotlyOutput("overdose_pop_graph"),
+        p(),
         fluidRow(
           plotlyOutput("legality_map")
         )
       ),
       tabPanel(
         "Drug Overdose Deaths",
-        p("From the 'Population vs. Deaths' bar chart, we can see that
+        p("From the 'Drug Overdose Deaths' bar chart, we can see that
                  most drug-induced deaths occur at the end of the year
                  (October, November, December) and less of them occur at the
                  beginning of the year (January, February, March). However,
