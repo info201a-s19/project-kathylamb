@@ -221,7 +221,7 @@ summary_content <- fluidPage(
       tabPanel(
         "Drug Use v. Age",
         p("From the 'Drug Use vs. Age' bar chart, we can see that the
-                   age of those with the hihgest drug use is around 20,with the
+                   age of those with the highest drug use is around 20,with the
                    exception of Heroin (ages 22-23) and Inhalants (age 16).
                    We also noticed a general decline in drug use as the age
                    increases. This could possibly explain why those of a
@@ -294,7 +294,7 @@ summary_content <- fluidPage(
         p("To answer our general question: 'Does drug use increases as age
         increases? Have the number of deaths increased over the years for
         the younger generation?' Drug use decreases as age increases. The
-        number of drug overdose deaths peeked in 2017 and decreased in 2018.")
+        number of drug overdose deaths generally increased from 2015 to 2018.")
       )
     )
   )
