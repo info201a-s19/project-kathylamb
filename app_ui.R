@@ -237,10 +237,7 @@ summary_content <- fluidPage(
                  could influence our data."),
                plotlyOutput("overdose_pop_graph"),
                h3("Marijuana Legality by State"),
-               fluidRow(
-                 column(6, tableOutput("legal_table_1")),
-                 column(6, tableOutput("legal_table_2"))
-               ) 
+                 plotlyOutput("legality_map")
       ),
     tabPanel("Drug Overdose Deaths",
                p("From the 'Population vs. Deaths' bar chart, we can see that 

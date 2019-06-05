@@ -137,21 +137,49 @@ server <- function(input, output) {
     df_1
   })
   
-  output$legal_table_2 <- renderTable ({
-    state_2 <- c("Montana", "Nebraska", "Nevada", "New Hampshire", 
-               "New Jersey", "New Mexico", "New York", "North Carolina",
-               "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
-               "Rhode Island", "South Carolina", "South Dakota","Tennessee",
-               "Texas", "Utah", "Vermont", "Virginia", "Washington", 
-               "West Virginia", "Wisconsin", "Wyoming")
-    legal_status_2 <- c("Mixed", "Fully Illegal", "Fully Legal", "Mixed", 
-                        "Mixed", "Mixed", "Mixed", "Fully Illegal", "Mixed", 
-                        "Mixed", "Mixed", "Fully Legal", "Mixed", "Mixed",
-                        "Fully Illegal", "Fully Illegal", "Fully Illegal", "Mixed",
-                        "Mixed", "Fully Legal", "Mixed", "Fully Legal", "Mixed", 
-                        "Fully Illegal", "Fully Illegal")
-    df_2 <- data.frame("State" = state_2, "Status" = legal_status_2)
-    df_2
+  output$legality_map <- renderPlotly ({
+    
+    drug_induced_deaths_select_map <- drug_induced_deaths %>% 
+      mutate(Abbreviation = state.abb[match(State, state.name)]) %>%
+      group_by(State) %>%
+      select(State, Year, Deaths, Population, Crude.Rate, Abbreviation) %>%
+      mutate(Legality = case_when(
+        State %in% c("Alabama", "Idaho", "Kansas", "Kentucky", "Mississippi", "Nebraska", "North Carolina", 
+                     "South Carolina", "South Dakota", "Tennessee", "Wisconsin", "Wyoming") ~ "Fully Illegal",
+        
+        State %in% c("Arizona", "Arkansas", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii",
+                     "Illinois", "Indiana", "Iowa", "Louisiana", "Maryland", "Minnesota", "Missouri",
+                     "Montana", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota",
+                     "Ohio", "Oklahoma", "Pennsylvania", "Rhode Island", "Texas", "Utah", "Virginia", 
+                     "West Virginia") ~ "Mixed",
+        
+        State %in% c("Alaska", "California", "Colorado", "District of Columbia", "Maine", "Massachusetts", 
+                     "Michigan", "Nevada", "Oregon", "Vermont", "Washington") ~ "Fully Legal"
+        
+      )) 
+    
+    drug_induced_deaths_select_map$hover <- with(drug_induced_deaths_select_map, paste(State, '<br>', "Legality:", Legality))
+    
+    l <- list(color = toRGB("white"), width = 2)
+    
+    g <- list(
+      scope = 'usa',
+      projection = list(type = 'albers usa'),
+      showlakes = TRUE,
+      lakecolor = toRGB('white')
+    )
+    
+    p <- plot_geo(drug_induced_deaths_select_map, locationmode = 'USA-states') %>%
+      add_trace(
+        text = ~hover, locations = ~Abbreviation,
+        color = ~Legality, colors = "Dark2"
+      ) %>%
+      layout(
+        title = "Legality Of Marijuana In Each State",
+        geo = g
+      )
+    
+    return(p)
   })
 }
 
